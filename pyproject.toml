@@ -1,0 +1,40 @@
+[project]
+name = "splunk-gate"
+version = "0.0.1"
+description = "A Splunk log Handler for Python"
+authors = [
+    {name = "gabrielechegorri@gmail.com"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "httpx (>=0.28.1,<0.29.0)",
+    "tenacity (>=9.1.2,<10.0.0)"
+]
+
+[tool.poetry]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.2"
+ruff = "^0.13.0"
+
+
+[tool.poetry.group.uvloop.dependencies]
+uvloop = "^0.21.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 101
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+extend-select = ["E501", "I"]
+ignore = ["E501"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
